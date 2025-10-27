@@ -5,7 +5,7 @@ import base64
 def random_response(message, history):
     bot_response = random.choice(["Yes", "No"])
     
-    audio_file = "gradio/talking_benn_yes.mp3" if bot_response == "Yes" else "gradio/talking_benn_no.mp3"
+    audio_file = "Talking Benn Gradio Bot/talking_benn_yes.mp3" if bot_response == "Yes" else "Talking Benn Gradio Bot/talking_benn_no.mp3"
     
     # Ses dosyasını base64'e çevir ve HTML'e göm
     with open(audio_file, "rb") as f:
@@ -28,5 +28,6 @@ with gr.Blocks() as demo:
     msg = gr.Textbox(autofocus=False, placeholder="Bir şey yazın...")
     
     msg.submit(random_response, [msg, chatbot], [chatbot])
+
 
 demo.launch()
